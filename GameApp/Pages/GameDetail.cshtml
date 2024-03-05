@@ -1,0 +1,29 @@
+﻿@page
+@model GameApp.Pages.GameDetailModel
+@{
+}
+
+@if(Model.Game == null)
+{
+    <p>Game not found</p>
+}
+else{
+<div>
+    <h2>
+        @Model.Game.Name
+    </h2>
+    <p>
+        @Model.Game.Description
+    </p>
+    <p>Genres</p>
+    <ul>
+        @foreach (var g in Model.Game.Genres)
+        {
+            <li>@g.Name</li>
+        }
+    </ul>
+    <p>
+        <a href="@Model.Game.Url">Link</a>
+    </p>
+</div>
+}

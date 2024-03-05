@@ -1,0 +1,14 @@
+﻿@page
+@model GameApp.Pages.GamesModel
+@{
+}
+<div>
+    <ul>
+        @foreach(var g in Model.Games)
+        {
+            <li>
+                <a asp-page="/GameDetail" asp-route-id="@g.GameID">@g.Name</a>
+            </li>
+        }
+    </ul>
+</div>
