@@ -3,12 +3,27 @@
 @{
 }
 <div>
-    <ul>
-        @foreach(var g in Model.Games)
-        {
-            <li>
-                <a asp-page="/GameDetail" asp-route-id="@g.GameID">@g.Name</a>
-            </li>
-        }
-    </ul>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var g in Model.Games)
+            {
+                <tr>
+                    <td>@g.GameID</td>
+                    <td>@g.Name</td>
+                    <td>@g.Description</td>
+                    <td>
+                        <a class="link-secondary" asp-page="/GameDetail" asp-route-id="@g.GameID">Detail</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

@@ -18,7 +18,10 @@ namespace GameApp.Data
         {
 
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<GamesGenres>().HasKey(gg => new { gg.GenreId, gg.GameId });
+            modelBuilder.Entity<Game>()
+                .HasMany(g => g.Genres)
+                .WithMany(h => h.Games)
+                .UsingEntity<GamesGenres>();
             // fluent zápis složitějších věcí
             // seed databáze
             modelBuilder.Entity<Game>().HasData(

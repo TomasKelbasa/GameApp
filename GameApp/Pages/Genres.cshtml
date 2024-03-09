@@ -1,0 +1,33 @@
+﻿@page
+@model GameApp.Pages.GenresModel
+@{
+}
+
+<h2>Genres</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input class="form-control" type="text" name="Name" />
+        <button class="btn btn-success" asp-page-handler="Add" type="submit">Add</button>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var genre in Model.Genres)
+            {
+                <tr>
+                    <td>@genre.Name</td>
+                    <td>
+                        <button class="btn btn-danger" asp-page-handler="Delete" type="submit" name="id" value="@genre.GenreID">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
